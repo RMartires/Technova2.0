@@ -8,12 +8,12 @@
 var DRAG_POINT_NUM = 4;
 var DRAG_POINT_MAX_NUM = 8;
 var CHILD_NUM = 2;
-var BACKGROUND_COLOR = 'rgba(0, 15, 20, 0.8)';
+var BACKGROUND_COLOR = 'rgba(0, 53, 102, 0.8)';
 
 // Color
 var H = 195;
 var S = 100;
-var L_MAX = 85;
+var L_MAX = 185;
 var L_MIN = 45;
 
 var canvas;
@@ -27,8 +27,10 @@ var lightningLine;
 var random = Math.random;
 var floor = Math.floor;
 
+
 function init() {
-    document.body.style.backgroundColor = BACKGROUND_COLOR;
+    //document.body.style.backgroundColor = BACKGROUND_COLOR;
+    //document.body.style.backgroundImage = "url('../images/backdrop.jpg')";
     canvas = document.getElementById('c');
 
     document.addEventListener('resize', resize, false);
@@ -40,8 +42,11 @@ function init() {
             dragPoints.push(new DragPoint(canvas.width * random(), canvas.height * random()));
         }
     */
-    dragPoints.push(new DragPoint(20, canvas.height / 2 - 40));
-    dragPoints.push(new DragPoint(380, canvas.height / 2 + 40));
+    dragPoints.push(new DragPoint(20, canvas.height / 2 - 80));
+    dragPoints.push(new DragPoint(380, canvas.height / 2 + 80));
+
+    dragPoints.push(new DragPoint(canvas.width - 50, canvas.height / 2 - 80));
+    dragPoints.push(new DragPoint(canvas.width - 50, canvas.height / 2 + 80));
 
     var baseNoiseOpts = { base: 100000, amplitude: 0.6, speed: 0.02 };
     var lightningNoiseOpts = { base: 90, amplitude: 0.2, speed: 0.05 };
@@ -165,7 +170,7 @@ function loop() {
 
     lightningLine.update(baseLine.points);
     drawLightningBlur(lightningLine, 50, 30);
-    drawLightningLine(lightningLine, 0.75, 1, 1, 5);
+    drawLightningLine(lightningLine, 1.75, 1.50, 1, 5);
     drawLightningCap(lightningLine);
 
     lightningLine.eachChild(function (child, i) {
@@ -177,6 +182,8 @@ function loop() {
 
     // * debug
     Debug.exec();
+
+
 }
 
 // Array sort callback
@@ -255,7 +262,7 @@ function randomRange(min, max) {
         this.noiseOptions = extend({
             base: 30,
             amplitude: 0.5,
-            speed: 0.002,
+            speed: 0.01,
             offset: 0
         }, noiseOptions);
 
