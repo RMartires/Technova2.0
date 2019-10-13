@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,6 +19,24 @@
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" type="text/css" href="thunder/thunder.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .mySlides {
+      display: none
+    }
+
+    .w3-left,
+    .w3-right,
+    .w3-badge {
+      cursor: pointer
+    }
+
+    .w3-badge {
+      height: 13px;
+      width: 13px;
+      padding: 0
+    }
+  </style>
 </head>
 
 <body>
@@ -49,7 +68,9 @@
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active"><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
                 <li><a href="contact.html">Contacts</a></li>
+
               </ul>
             </nav>
           </div>
@@ -71,6 +92,7 @@
           </span>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfERUGmO9eJKPYK8mINkQN7SDqqkE0wuea0zoAbbpveA48moA/viewform"
             class="btn-custom" data-aos="fade-up" data-aos-delay="400" target='_blank'><span>Register Now!!</span></a>
+          <p></p>
           <a href="downloads/TECHNOVA BROCHURE.pdf" class="btn-custom" data-aos="fade-up"
             data-aos-delay="400"><span>Download Brochure</span></a>
         </div>
@@ -83,40 +105,73 @@
       <div class="row mb-5">
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="site-section-heading">
-            <h2>Events<br>
-              Register Now!!
+            <h2>Notice Board<br>
             </h2>
           </div>
         </div>
         <div class="col-lg-5 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
-          <p id='reg'>
-          </p>
+          <div class="w3-container">
+          </div>
         </div>
       </div>
 
-      <p>
-        <ul class="events">
+      <div class="w3-container">
+      </div>
 
-          <li>ROBO Sumo</li>
-          <li>ROBO Soccer</li>
-          <li>Line follower</li>
-          <li>Tech Buzz (Quiz)</li>
-          <li>IOT Master chef</li>
-          <li>Circuit Builders</li>
-          <li>Code Warriors</li>
-          <li>Chart it out (Poster Presentation)</li>
-          <li>Technical Cross words</li>
-          <li>Brain Jammers</li>
-          <li>Speak out</li>
-          <li>Stand out (Mock Parliament)</li>
-          <li>Sell it out</li>
-          <li>Minute to
-            win it</li>
-          <li>Frame it</li>
-          <li>Short Film</li>
-          <li>The Gorgons Gambit</li>
-        </ul>
-      </p>
+      <div class="w3-content" style="max-width:1200px">
+
+        <a href="https://forms.gle/1HdXyXwxGqGyh78Q9" target="_blank"><img class="mySlides"
+            src="images/PCB Worskhop Poster (1).jpg" style="width:100%"></a>
+        <img class="mySlides" src="images/TECHNOVA Poster (1).jpg" style="width:100%">
+        <img class="mySlides" src="images/0001.jpg" style="width:100%">
+        <img class="mySlides" src="images/0002.jpg" style="width:100%">
+
+        <div class="w3-row-padding w3-section">
+          <div class="w3-col s4">
+            <img class="demo w3-opacity w3-hover-opacity-off" src="images/PCB Worskhop Poster (1).jpg"
+              style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+          </div>
+          <div class="w3-col s4">
+            <img class="demo w3-opacity w3-hover-opacity-off" src="images/TECHNOVA Poster (1).jpg"
+              style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+          </div>
+          <div class="w3-col s4">
+            <img class="demo w3-opacity w3-hover-opacity-off" src="images/compressjpeg/0001-min.jpg"
+              style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+          showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("demo");
+          if (n > x.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = x.length }
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" w3-white", "");
+          }
+          x[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " w3-white";
+        }
+      </script>
+
+
 
       <div class="site-section">
         <div class="container">
